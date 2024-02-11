@@ -1,7 +1,8 @@
-import { Body, Controller, InternalServerErrorException, Post } from '@nestjs/common';
+import { Body, Controller, Get, InternalServerErrorException, Post, Req, UseGuards } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UserLoginDto } from './dto/user-login.dto';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('user')
 export class UserController {
@@ -29,5 +30,12 @@ export class UserController {
                 status: 500
             })
         }
+    }
+
+    @Get('allUsers')
+    @UseGuards(AuthGuard())
+    async getAllUsers(@Req() req){
+        console.log("request ==>",req.user.user);
+        return await this,this.userService.getAllUsers();
     }
 }

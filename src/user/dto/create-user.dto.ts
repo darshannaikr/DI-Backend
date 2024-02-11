@@ -9,5 +9,4 @@ export class CreateUserDto{
     readonly company: string;
     readonly jobRole: string;
     readonly location: string;
-
 }

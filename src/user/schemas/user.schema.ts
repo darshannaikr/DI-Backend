@@ -19,9 +19,6 @@ export class User {
     @Prop({ required: true })
     password: string;
 
-    @Prop({ required: true })
-    reEnterPassword: string;
-
     @Prop({ unique: true })
     phoneNo: string;
 
