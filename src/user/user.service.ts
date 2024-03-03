@@ -60,12 +60,12 @@ export class UserService {
         return await this.userModel.find();
     }
 
-    async validateUser(email: string, password: string) {
-        const user = await this.userModel.findOne({email: email});
-        if (user && user.password === password) {
-          const { password, ...result } = user;
-          return result;
-        }
-        return null;
-    }
+    // async validateUser(email: string, password: string) {
+    //     const user = await this.userModel.findOne({email: email});
+    //     if (user && user.password === password) {
+    //       const { password, ...result } = user;
+    //       return result;
+    //     }
+    //     return null;
+    // }
 }
